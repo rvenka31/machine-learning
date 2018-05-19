@@ -1,3 +1,5 @@
 # machine-learning
 
-Data manipulation, functions , pivot table, crosstab
+1. Data manipulation
+2. functions, pivot table & crosstab
+3. Handling imbalance data & visualizaing result
