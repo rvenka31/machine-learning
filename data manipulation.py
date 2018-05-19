@@ -27,19 +27,21 @@ player_college=pd.read_csv("/Users/mac/Downloads/baseballdatabank-2017.1/core/Co
 halloffame=pd.read_csv("/Users/mac/Downloads/baseballdatabank-2017.1/core/HallOfFame.csv")
 player_salary=pd.read_csv("/Users/mac/Downloads/baseballdatabank-2017.1/core/Salaries.csv")
 
+-------------------
 # combining data
-
+# Merge player awards & college to a single table based on the playerID
+-------------------
 star_alumini=pd.merge(player_awards,player_college,on='playerID')
 star_alumini=star_alumini[star_alumini.awardID.isin(['TSN All-Star','TSN Major League Player of the Year','World Series MVP'])]
 star_alumini.head()
 star_alumini.awardID.value_counts()
 
-
-
-#cross Tab
-
-pd.crosstab(star_alumini.schoolID,star_alumini.awardID)
-
-
+-------------------
 #pivot table
+#Create a pivot to display the number of individual awards won colleges
+-------------------
+
+pvt=pd.pivot_table(star_alumini,index= ['schoolID','awardID'],values='playerID',aggfunc=np.count_nonzero,fill_value=0,margins=True)
+pvt.head(10)
+
 
