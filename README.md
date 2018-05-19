@@ -1,3 +1,3 @@
 # machine-learning
 
-Data manipulation, functions
+Data manipulation, functions , pivot table, crosstab
